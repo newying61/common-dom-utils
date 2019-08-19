@@ -1,5 +1,7 @@
 # common-dom-utils
-Common DOM util functions.
+Common DOM util functions with modern browsers.
+
+No polyfill rely on your project polyfill.
 
 Supporting types and tree shaking with webpack.
 
@@ -7,8 +9,9 @@ Supporting types and tree shaking with webpack.
 1. [load js script in to container](#load-js-script-into-DOM-container)
 1. [load css file into DOM container](#load-css-file-into-DOM-container)
 1. [load script with SRI](#load-script-with-SRI)
-1. [load css string into DOM container](#load-css-string-into-DOM-container)
 1. [load js scripts series into DOM container](#load-js-scripts-series-into-DOM-container)
+1. [get activeElement with shadow DOM support](#get-activeElement-with-shadow-DOM-support)
+1. [load css string into DOM container](#load-css-string-into-DOM-container)
 
 ### load js script into DOM container
 Load js script file into DOM.
@@ -25,6 +28,18 @@ parameters:
 - src: string. javascript file url
 - container: DOM element that \<script\> tag is inserted into, default: document.head
 - attributes: object. Extra attributes added to the script tag
+
+### load css file into DOM container
+Load css file into DOM.
+```
+import { loadCssFile } from 'common-dom-utils';
+
+loadCssFile('https://css-file-url/file.css');
+```
+
+parameters:
+- cssFileUrl: string. css file url
+- container: DOM element that \<link\> tag is inserted into, default: document.head
 
 ### load js scripts series into DOM container
 Load js script file into DOM.
@@ -60,21 +75,20 @@ loadScriptWithSRI(
 );
 ```
 
+### get activeElement with shadow DOM support
+Return document.activeElement by default.
+
+If passing true as a parameter, it will look into shadowRoot until finding the real active element.
+```
+import { getActiveElement } from 'common-dom-utils';
+
+// With shadow DOM - will look into shadowRoot until find the real active element
+const activeElement = getActiveElement(true);
+```
+
 parameters:
 - script: object. properties: src, integrity, crossorigin
 - container: DOM element that \<script\> tag is inserted into, default: document.head
-
-### load css file into DOM container
-Load css file into DOM.
-```
-import { loadCssFile } from 'common-dom-utils';
-
-loadCssFile('https://css-file-url/file.css');
-```
-
-parameters:
-- cssFileUrl: string. css file url
-- container: DOM element that \<link\> tag is inserted into, default: document.head
 
 ### load css string into DOM container
 Load css string into DOM.
