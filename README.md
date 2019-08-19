@@ -87,8 +87,7 @@ const activeElement = getActiveElement(true);
 ```
 
 parameters:
-- script: object. properties: src, integrity, crossorigin
-- container: DOM element that \<script\> tag is inserted into, default: document.head
+- withShadowRoot: boolean. default: false.
 
 ### load css string into DOM container
 Load css string into DOM.

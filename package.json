@@ -48,7 +48,8 @@
   "keywords": [
     "utils",
     "load script",
-    "load js files sequence"
+    "load js files sequence",
+    "load css"
   ],
   "author": "ShoM <newying61@gmail.com>",
   "license": "MIT",
