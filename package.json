@@ -1,6 +1,6 @@
 {
   "name": "common-dom-utils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Common DOM util functions",
   "main": "dist/index.js",
   "module": "lib/index.js",
