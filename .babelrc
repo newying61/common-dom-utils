@@ -6,8 +6,7 @@
         "modules": false
       }
     ],
-    "@babel/typescript",
-    "@babel/preset-react"
+    "@babel/typescript"
   ],
   "plugins": [
     [

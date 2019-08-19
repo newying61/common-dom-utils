@@ -3,22 +3,16 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint", "react-hooks"],
+  "plugins": ["@typescript-eslint"],
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
     "prettier",
     "prettier/@typescript-eslint"
   ],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/no-explicit-any": 0,
-    "react-hooks/rules-of-hooks": 2,
-    "react-hooks/exhaustive-deps": 2
+    "@typescript-eslint/no-explicit-any": 0
   },
   "settings": {
-    "react": {
-      "version": "detect"
-    }
   }
 }
