@@ -4,10 +4,11 @@ Common DOM util functions.
 Supporting types and tree shaking with webpack.
 
 ## Contents
-1. [load js script in to container](load-js-script-into-DOM-container)
-1. [load css file into DOM container](load-css-file-into-DOM-container)
-1. [load css string into DOM container](load-css-string-into-DOM-container)
-1. [load js scripts series into DOM container](load-js-scripts-series-into-DOM-container)
+1. [load js script in to container](#load-js-script-into-DOM-container)
+1. [load css file into DOM container](#load-css-file-into-DOM-container)
+1. [load script with SRI](#load-script-with-SRI)
+1. [load css string into DOM container](#load-css-string-into-DOM-container)
+1. [load js scripts series into DOM container](#load-js-scripts-series-into-DOM-container)
 
 ### load js script into DOM container
 Load js script file into DOM.
@@ -21,8 +22,9 @@ loadScript('https://script-url.com/script.js').then(
 ```
 
 parameters:
-- src: javascript file url
+- src: string. javascript file url
 - container: DOM element that \<script\> tag is inserted into, default: document.head
+- attributes: object. Extra attributes added to the script tag
 
 ### load js scripts series into DOM container
 Load js script file into DOM.
@@ -42,6 +44,25 @@ parameters:
 - src: javascript file url
 - container: DOM element that \<script\> tag is inserted into, default: document.head
 
+### load script with SRI
+SRI means Subresource Integrity (SRI) checking, it's recommended when using CDN for scripts.
+```
+import { loadScriptWithSRI } from 'common-dom-utils';
+
+loadScriptWithSRI(
+  {
+    src: 'https://code.jquery.com/jquery-3.4.1.js',
+    integrity: 'sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=',
+    crossorigin: 'anonymous'
+  }).then(
+  () => { console.log('Script loaded') },
+  (e) => { conole.log(e) }
+);
+```
+
+parameters:
+- script: object. properties: src, integrity, crossorigin
+- container: DOM element that \<script\> tag is inserted into, default: document.head
 
 ### load css file into DOM container
 Load css file into DOM.
@@ -52,7 +73,7 @@ loadCssFile('https://css-file-url/file.css');
 ```
 
 parameters:
-- cssFileUrl: css file url
+- cssFileUrl: string. css file url
 - container: DOM element that \<link\> tag is inserted into, default: document.head
 
 ### load css string into DOM container

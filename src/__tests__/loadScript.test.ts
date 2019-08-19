@@ -25,9 +25,26 @@ describe('loadScript - loading js file', () => {
     expect(el).not.toBe(null);
 
     el.onload();
-});
+  });
 
-it('should reject promise when script load failed', () => {
+  it('should load script with attributes', () => {
+    const src = 'https://test-attributes.js';
+
+    loadScript(src, document.head, {
+      integrity: 'test',
+      crossorigin: 'test'
+    });
+
+    const el = document.querySelector(`script[src="${src}"]`) as any;
+    expect(el).not.toBe(null);
+
+    expect(el.getAttribute('integrity')).toBe('test');
+    expect(el.getAttribute('crossorigin')).toBe('test');
+
+    el.onload();
+  });
+
+  it('should reject promise when script load failed', () => {
     const src = 'https://test-error.js';
     const promise = loadScript(src);
 
