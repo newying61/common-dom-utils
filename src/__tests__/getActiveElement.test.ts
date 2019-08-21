@@ -1,5 +1,7 @@
 import { getActiveElement } from '..';
 
+HTMLElement.prototype
+
 describe('getActiveElement - return activeElement', () => {
   it('should return activeElement', () => {
     const button = document.createElement('button');
@@ -11,20 +13,22 @@ describe('getActiveElement - return activeElement', () => {
     expect(element).toBe(button);
   });
 
-  // Currently, JS DOM doesn't support shadow DOM
-  // it('should return activeElement with shadow DOM', () => {
-  //   const div = document.createElement('div');
-  //   div.attachShadow({ mode: 'open' });
+  it('should return activeElement with shadow DOM', () => {
+    const div = document.createElement('div');
+    document.body.appendChild(div);
+    div.attachShadow({ mode: 'open' });
 
-  //   const button = document.createElement('button');
-  //   div.shadowRoot.appendChild(button);
-  //   button.focus();
+    const button = document.createElement('button');
+    div.shadowRoot.appendChild(button);
 
-  //   const element = getActiveElement();
+    button.focus();
 
-  //   expect(element).toBe(div);
+    // shadowRoot.activeElement is not implemented in jsdom 15.1.1 (21 Aug 2019)
+    // const element = getActiveElement();
 
-  //   const realEl = getActiveElement(true);
-  //   expect(realEl).toBe(button);
-  // });
+    // expect(element).toBe(div);
+
+    const realEl = getActiveElement(true);
+    expect(realEl).toBe(button);
+  });
 });

@@ -1,17 +1,14 @@
 # common-dom-utils
-Common DOM util functions for modern browsers.
+Common DOM util functions for modern browsers, with shadow DOM support.
 
 Supporting types and tree shaking with webpack.
 
-No polyfill. Rely on your project polyfill.
+No polyfill. Rely on your project polyfill (Promise).
 
 Hope this can make the development easier.
 
 ## install
-Use npm or yarn.
-```
-yarn add common-dom-utils
-```
+Use npm `npm install common-dom-utils` or yarn `yarn add common-dom-utils`
 
 ## Methods
 1. [load js script in to container](#load-js-script-into-DOM-container)
@@ -21,6 +18,7 @@ yarn add common-dom-utils
 1. [get activeElement with shadow DOM support](#get-activeElement-with-shadow-DOM-support)
 1. [load css string into DOM container](#load-css-string-into-DOM-container)
 1. [set element focus](#set-element-focus)
+1. [get Event target with shadow DOM support](#get-Event-target)
 
 ### load js script into DOM container
 Load js script file into DOM.
@@ -88,14 +86,47 @@ loadScriptWithSRI(
 Return document.activeElement by default.
 
 If passing true as a parameter, it will look into shadowRoot until finding the real active element.
+
+For example in the following structure:
++host-element
+  +shadowRoot
+    +button
+If button get focus:
 ```
 import { getActiveElement } from 'common-dom-utils';
 
-// shadow DOM support - will look into shadowRoot until find the real active element
+// This will return host-element.
+const hostEl = getActiveElement();
+
+// This will look into shadowRoot and return button
 const activeElement = getActiveElement(true);
 ```
 
 parameters:
+- withShadowRoot: boolean. default: false.
+
+### get Event target
+Getting event target element by event.target.
+
+If the event is triggered inside shadow DOM, passing true as the second parameter, it will get the real event target by using composedPath().
+
+For example in the following structure:
++host-element
+  +shadowRoot
+    +button
+If button is clicked:
+```
+import { getEventTarget } from 'common-dom-utils';
+
+// This will return host-element.
+const targetHostEl = getEventTarget(evt);
+
+// This will look into shadowRoot and return button
+const target = getEventTarget(evt, true);
+```
+
+parameters:
+- event: DOM Event object.
 - withShadowRoot: boolean. default: false.
 
 ### load css string into DOM container
