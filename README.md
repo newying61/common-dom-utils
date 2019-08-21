@@ -3,12 +3,12 @@ Common DOM util functions for modern browsers, with shadow DOM support.
 
 Supporting types and tree shaking with webpack.
 
-No polyfill. Rely on your project polyfill (Promise).
+No polyfill. Rely on your project polyfill (Only Promise needed for older browsers).
 
-Hope this can make the development easier.
+Hope this can help to make front end development easier.
 
 ## install
-Use npm `npm install common-dom-utils` or yarn `yarn add common-dom-utils`
+Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 
 ## Methods
 1. [load js script in to container](#load-js-script-into-DOM-container)
@@ -34,7 +34,7 @@ loadScript('https://script-url.com/script.js').then(
 parameters:
 - src: string. javascript file url
 - container: DOM element that \<script\> tag is inserted into, default: document.head
-- attributes: object. Extra attributes added to the script tag
+- attributes: object. Extra attributes added to the script tag.
 
 ### load css file into DOM container
 Load css file into DOM.
@@ -55,7 +55,7 @@ import { loadScriptsSeries } from 'common-dom-utils';
 
 loadScriptsSeries([
   'https://script-url.com/script1.js',
-  'https://script-url.com/script1.js'
+  'https://script-url.com/script2.js'
 ]).then(
   () => { console.log('Scripts loaded') },
   (e) => { conole.log(e) }
