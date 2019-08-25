@@ -4,6 +4,7 @@ describe('getEventTarget - return event target', () => {
   it('should return event target', () => {
     const mockTarget = document.createElement('button');
     const event = new Event('click', { bubbles: true });
+    document.body.appendChild(mockTarget);
 
     document.addEventListener('click', () => {
       const element = getEventTarget(event);
@@ -16,6 +17,7 @@ describe('getEventTarget - return event target', () => {
   it('should return event target with shadowRoot', () => {
     const div = document.createElement('div');
     div.attachShadow({ mode: 'open' });
+    document.body.appendChild(div);
 
     const mockTarget = document.createElement('button');
     div.shadowRoot.appendChild(mockTarget);

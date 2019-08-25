@@ -4,7 +4,7 @@ export default function getEventTarget(evt: Event, withShadowRoot: boolean = fal
   if (withShadowRoot &&
       target && (target as HTMLElement).shadowRoot &&
       evt.composed && evt.composedPath) {
-     target = event.composedPath().shift();
+     target = evt.composedPath().shift();
   }
 
   return target;
