@@ -7,3 +7,5 @@ export { default as getActiveElement } from './getActiveElement';
 export { default as setFocus } from './setFocus';
 export { default as getEventTarget } from './getEventTarget';
 export { default as getAncestorNode } from './getAncestorNode';
+export { default as getHostElement } from './getHostElement';
+export { default as getShadowRoot } from './getShadowRoot';

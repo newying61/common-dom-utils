@@ -19,6 +19,8 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [load css string into DOM container](#load-css-string-into-DOM-container)
 1. [set element focus](#set-element-focus)
 1. [get Event target with shadow DOM support](#get-Event-target)
+1. [get ancestor parent](#get-ancestor-node)
+1. [get host element](#get-host-element)
 
 ### load js script into DOM container
 Load js script file into DOM.
@@ -148,4 +150,35 @@ Set focus for element. If element is null or undefined, do nothing.
 import { setFocus } from 'common-dom-utils';
 
 setFocus(ref.current);
+```
+### get ancestor node
+Get ancestor node by condition. This function will cross shadowRoot until it find the parent node that matches the condition.
+```
+import { getAncestorNode } from 'common-dom-utils';
+
+const parent = getAncestorNode(ref.current, (node) => { node.className === 'container'});
+```
+
+Parameters:
+- node: HTMLElement. Starting node.
+- isNodeFound: Condition function called to check current node. Return true or false.
+
+### get host element
+Get host element of a HTMLElement node. If node is not inside shadow DOM, null will be returned.
+
+```
+import { getHostElement } from 'common-dom-utils';
+
+const host = getHostElement(ref.current);
+```
+
+### get shadowRoot
+Get the shadowRoot instance of a HTMLElement node.
+
+If node is not inside shadow DOM, null will be returned.
+
+```
+import { getShadowRoot } from 'common-dom-utils';
+
+const shadowRoot = getShadowRoot(ref.current);
 ```
