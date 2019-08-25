@@ -24,6 +24,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [get window width and height](#get-window-width-and-height)
 1. [get element offset and element top](#get-element-offset-and-element-top)
 1. [scroll to anchor or position](#scroll-to-anchor-or-position)
+1. [querySelector and querySelectorAll inside container](#querySelector-and-querySelectorAll-inside-container)
 
 ### load js script into DOM container
 Load js script file into DOM.
@@ -230,3 +231,23 @@ scrollTo parameters:
 scrollToPosition parameters:
 - position: number.
 - duration: animating time. default: 0 (no scroll animation)
+
+### querySelector and querySelectorAll inside container
+document.querySelector and document.querySelectorAll doesn't go into shadow DOM.
+
+You have to call shadowRoot.querySelector and shadowRoot.querySelectorAll instead.
+
+querySelector and querySelectorAll methods are getting root node from setRootNode function.
+
+The root node can be shadowRoot.
+```
+import { setRootNode, querySelector, querySelectorAll } from 'common-dom-utils';
+
+// Only need to setRootNode once.
+setRootNode(shadowRoot);
+
+querySelector('.element-className');
+querySelectorAll('.element-className');
+```
+
+If not calling setRootNode(), by default root node will be document.

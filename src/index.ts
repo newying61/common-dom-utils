@@ -14,3 +14,6 @@ export { getWindowHeight } from './getWindowHeight';
 export { getElementTop } from './getElementTop';
 export { scrollTo } from './scrollTo';
 export { scrollToPosition } from './scrollToPosition';
+export { setRootNode, getRootNode } from './setRootNode';
+export { querySelector } from './querySelector';
+export { querySelectorAll } from './querySelectorAll';
