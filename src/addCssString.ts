@@ -1,4 +1,4 @@
-export default function addCssString(
+export function addCssString(
   cssString: string,
   container: HTMLElement = document.head,
   before: boolean = false) {

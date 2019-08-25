@@ -1,4 +1,4 @@
-export default function setFocus(el: HTMLElement) {
+export function setFocus(el: HTMLElement) {
   if (!el) {
     return;
   }

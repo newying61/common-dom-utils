@@ -1,4 +1,4 @@
-export default function loadScript(
+export function loadScript(
   src: string,
   container: HTMLElement = document.head,
   attributes: any = null) {

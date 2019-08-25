@@ -3,7 +3,7 @@
  * If element is not in shadow DOM, return null.
  *
  */
-export default function getShadowRoot(el: HTMLElement) {
+export function getShadowRoot(el: HTMLElement) {
   if (!el) {
     return null;
   }

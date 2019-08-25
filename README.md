@@ -21,6 +21,9 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [get Event target with shadow DOM support](#get-Event-target)
 1. [get ancestor parent](#get-ancestor-node)
 1. [get host element](#get-host-element)
+1. [get window width and height](#get-window-width-and-height)
+1. [get element offset and element top](#get-element-offset-and-element-top)
+1. [scroll to anchor or position](#scroll-to-anchor-or-position)
 
 ### load js script into DOM container
 Load js script file into DOM.
@@ -182,3 +185,48 @@ import { getShadowRoot } from 'common-dom-utils';
 
 const shadowRoot = getShadowRoot(ref.current);
 ```
+
+### get window width and height
+Get window width.
+```
+import { getWindowWidth, getWindowHeight } from 'common-dom-utils';
+
+const width = getWindowWidth();
+const height = getWindowHeight();
+```
+
+### get element offset and element top
+Get element offset
+```
+import { getElementOffset, getElementTop } from 'common-dom-utils';
+
+const elBox = getElementOffset(el);
+const top = getElementTop(el);
+```
+
+Offset object
+```
+{
+  top: element top with scroll top
+  left: element left with scroll left,
+  width: element offset width,
+  height: element offset height
+}
+```
+
+### scroll to anchor or position
+Scroll body to anchor element or a postion. (Vertical direction)
+```
+import { scrollToPosition, scrollTo } from 'common-dom-utils';
+
+scrollTo(ref.current, 300);
+scrollToPosition(0, 300);
+```
+
+scrollTo parameters:
+- anchor: HTMLElement, element to scroll to
+- duration: animating time. default: 0 (no scroll animation)
+
+scrollToPosition parameters:
+- position: number.
+- duration: animating time. default: 0 (no scroll animation)

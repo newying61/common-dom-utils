@@ -4,7 +4,7 @@
  * If not found, null will be returned.
  *
  */
-export default function getAncestorNode(
+export function getAncestorNode(
   current: HTMLElement|ShadowRoot,
   isNodeFound: (node: any) => boolean): HTMLElement|null {
   let node: any = current;

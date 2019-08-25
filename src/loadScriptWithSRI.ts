@@ -1,4 +1,4 @@
-import loadScript from './loadScript';
+import { loadScript } from './loadScript';
 
 export interface ScriptType {
   src: string;
@@ -6,7 +6,7 @@ export interface ScriptType {
   crossorigin: string;
 }
 
-export default function loadScriptWithSRI(
+export function loadScriptWithSRI(
   { src, integrity, crossorigin }: ScriptType,
   container: HTMLElement = document.head) {
     return loadScript(src, container, {

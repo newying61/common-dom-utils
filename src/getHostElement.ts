@@ -3,7 +3,7 @@
  * If element is not in shadow DOM, return null.
  *
  */
-export default function getHostElement(el: HTMLElement) {
+export function getHostElement(el: HTMLElement) {
   if (!el) {
     return null;
   }

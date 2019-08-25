@@ -1,4 +1,4 @@
-export default function loadCssFile(
+export function loadCssFile(
   cssFileUrl: string,
   container: HTMLElement = document.head,
   before: boolean = false) {

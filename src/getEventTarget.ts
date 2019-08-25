@@ -5,7 +5,7 @@
  * withShadowRoot: boolean. Passing true to get the real target, if event triggered inside shadow DOM. default: false
  *
  */
-export default function getEventTarget(evt: Event, withShadowRoot: boolean = false) {
+export function getEventTarget(evt: Event, withShadowRoot: boolean = false) {
   let target = evt.target;
 
   if (withShadowRoot &&
