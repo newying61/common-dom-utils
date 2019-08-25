@@ -6,3 +6,4 @@ export { default as addCssString } from './addCssString';
 export { default as getActiveElement } from './getActiveElement';
 export { default as setFocus } from './setFocus';
 export { default as getEventTarget } from './getEventTarget';
+export { default as getAncestorNode } from './getAncestorNode';

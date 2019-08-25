@@ -1,7 +1,5 @@
 import { getActiveElement } from '..';
 
-HTMLElement.prototype
-
 describe('getActiveElement - return activeElement', () => {
   it('should return activeElement', () => {
     const button = document.createElement('button');
