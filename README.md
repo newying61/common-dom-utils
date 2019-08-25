@@ -24,7 +24,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [get window width and height](#get-window-width-and-height)
 1. [get element offset and element top](#get-element-offset-and-element-top)
 1. [scroll to anchor or position](#scroll-to-anchor-or-position)
-1. [querySelector and querySelectorAll inside container](#querySelector-and-querySelectorAll-inside-container)
+1. [querySelector and querySelectorAll inside container](#queryselector-and-queryselectorall-inside-container)
 
 ### load js script into DOM container
 Load js script file into DOM.

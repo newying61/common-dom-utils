@@ -50,10 +50,9 @@
     "lib/**"
   ],
   "keywords": [
-    "utils",
-    "load script",
-    "load js files sequence",
-    "load css"
+    "dom utils",
+    "load script, css",
+    "shadow DOM"
   ],
   "author": "ShoM <newying61@gmail.com>",
   "license": "MIT",
