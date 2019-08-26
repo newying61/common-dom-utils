@@ -1,5 +1,5 @@
-import { getRootNode } from './setRootNode';
-
-export function querySelector(selector: string) {
-  return getRootNode().querySelector(selector);
+export function querySelector(
+  selector: string,
+  container: HTMLElement|Document|ShadowRoot = document) {
+    return container.querySelector(selector);
 }

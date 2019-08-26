@@ -25,6 +25,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [get element offset and element top](#get-element-offset-and-element-top)
 1. [scroll to anchor or position](#scroll-to-anchor-or-position)
 1. [querySelector and querySelectorAll inside container](#queryselector-and-queryselectorall-inside-container)
+1. [create dom utils for shadowRoot](#create-dom-utils-for-shadowroot)
 
 ### load js script into DOM container
 Load js script file into DOM.
@@ -236,18 +237,36 @@ scrollToPosition parameters:
 document.querySelector and document.querySelectorAll doesn't go into shadow DOM.
 
 You have to call shadowRoot.querySelector and shadowRoot.querySelectorAll instead.
-
-querySelector and querySelectorAll methods are getting root node from setRootNode function.
-
-The root node can be shadowRoot.
 ```
-import { setRootNode, querySelector, querySelectorAll } from 'common-dom-utils';
+import { querySelector, querySelectorAll } from 'common-dom-utils';
 
-// Only need to setRootNode once.
-setRootNode(shadowRoot);
-
-querySelector('.element-className');
-querySelectorAll('.element-className');
+querySelector('.element-className', shadowRoot);
+querySelectorAll('.element-className', shadowRoot);
 ```
 
-If not calling setRootNode(), by default root node will be document.
+### create dom utils for shadowRoot
+Create a Dom Utils object for shadowRoot.
+
+```
+import { createDomUtilsForShadowRoot } from 'common-dom-utils';
+
+const domUtils = createDomUtilsForShadowRoot(this.shadowRoot);
+
+domUtils.querySelector('.element-className');
+domUtils.querySelectorAll('.element-className');
+```
+
+parameters:
+- shadowRoot: ShadowRoot or HTMLElement.
+
+Return:
+- Dom Utils Object exposing functions with shadowRoot support
+```
+{
+  querySelector,
+  querySelectorAll,
+  getActiveElement,
+  setFocus,
+  getEventTarget
+}
+```
