@@ -11,21 +11,34 @@ Hope this can help to make front end development easier.
 Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 
 ## Methods
+### Load js or css files
 1. [load js script in to container](#load-js-script-into-DOM-container)
 1. [load css file into DOM container](#load-css-file-into-DOM-container)
 1. [load script with SRI](#load-script-with-SRI)
 1. [load js scripts series into DOM container](#load-js-scripts-series-into-DOM-container)
-1. [get activeElement with shadow DOM support](#get-activeElement-with-shadow-DOM-support)
 1. [load css string into DOM container](#load-css-string-into-DOM-container)
+
+### DOM operations
+1. [get activeElement with shadow DOM support](#get-activeElement-with-shadow-DOM-support)
 1. [set element focus](#set-element-focus)
 1. [get Event target with shadow DOM support](#get-Event-target)
 1. [get ancestor parent](#get-ancestor-node)
-1. [get host element](#get-host-element)
+1. [querySelector and querySelectorAll inside container](#queryselector-and-queryselectorall-inside-container)
+
+### Dimension related
 1. [get window width and height](#get-window-width-and-height)
 1. [get element offset and element top](#get-element-offset-and-element-top)
-1. [scroll to anchor or position](#scroll-to-anchor-or-position)
-1. [querySelector and querySelectorAll inside container](#queryselector-and-queryselectorall-inside-container)
+1. [get element width, actual width, height, actual height](#get-element-width,-actual-width,-height,-actual-height)
+1. [check whether elment is visible/hidden](#check-whether-elment-is-visible/hidden)
+1. [set or clear element max-height](#set-or-clear-element-max-height)
+
+### shadow DOM related
+1. [get host element](#get-host-element)
+1. [get shadowRoot](#get-shadowRoot)
 1. [create dom utils for shadowRoot](#create-dom-utils-for-shadowroot)
+
+### Other utils
+1. [scroll to anchor or position](#scroll-to-anchor-or-position)
 
 ### load js script into DOM container
 Load js script file into DOM.
@@ -198,7 +211,7 @@ const height = getWindowHeight();
 ```
 
 ### get element offset and element top
-Get element offset
+Get element offset.
 ```
 import { getElementOffset, getElementTop } from 'common-dom-utils';
 
@@ -214,6 +227,43 @@ Offset object
   width: element offset width,
   height: element offset height
 }
+```
+
+If element is null or undefined, offset will be null.
+
+### get element width, actual width, height, actual height
+Get element width, actual width (scrollWidth), height, actual height(scrollHeight).
+```
+import {
+  getElementWidth,
+  getElementHeight,
+  getElementActualWidth,
+  getElementActualHeight
+} from 'common-dom-utils';
+
+  const width = getElementWidth(el);
+  const height = getElementHeight(el);
+  const actualWidth = getElementActualWidth(el);
+  const actualHeight = getElementActualHeight(el);
+```
+
+If elment is null or undefined, return value will be 0.
+
+### set or clear element max-height
+Set or clear element max-height
+```
+import { setElementMaxHeight, clearElementMaxHeight } from 'common-dom-utils';
+
+setElementMaxHeight(ref.current, '100px');
+clearElementMaxHeight(ref.current);
+```
+
+### check whether elment is visible/hidden
+Check whether elment is visible/hidden.
+```
+import { isElementVisible } from 'common-dom-utils';
+
+const isHidden = !isElementVisible(ref.current);
 ```
 
 ### scroll to anchor or position

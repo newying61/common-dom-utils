@@ -1,6 +1,6 @@
 export function getElementOffset(el: HTMLElement) {
   if (!el) {
-    return 0;
+    return null;
   }
 
   const rect = el.getBoundingClientRect();
