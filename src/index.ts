@@ -28,3 +28,5 @@ export { appendChild } from './appendChild';
 export { appendHtmlString } from './appendHtmlString';
 export { prependChild } from './prependChild';
 export { prependHtmlString } from './prependHtmlString';
+export { appendHtmlStringToShadowRoot } from './appendHtmlStringToShadowRoot';
+export { prependHtmlStringToShadowRoot } from './prependHtmlStringToShadowRoot';

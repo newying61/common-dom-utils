@@ -12,15 +12,15 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 
 ## Methods
 ### Load js or css files
-1. [load js script in to container](#load-js-script-into-DOM-container)
-1. [load css file into DOM container](#load-css-file-into-DOM-container)
+1. [load js script in to container](#load-js-script-into-dom-container)
+1. [load css file into DOM container](#load-css-file-into-dom-container)
 1. [load script with SRI](#load-script-with-SRI)
-1. [load js scripts series into DOM container](#load-js-scripts-series-into-DOM-container)
-1. [load css string into DOM container](#load-css-string-into-DOM-container)
+1. [load js scripts series into DOM container](#load-js-scripts-series-into-dom-container)
+1. [load css string into DOM container](#load-css-string-into-dom-container)
 
 ### DOM operations
-1. [append/prepend element or html string](#append/prepend-element-or-html-string)
-1. [get activeElement with shadow DOM support](#get-activeElement-with-shadow-DOM-support)
+1. [append/prepend element or html string to container or shadowRoot](#appendprepend-element-or-html-string-to-container-or-shadowroot)
+1. [get activeElement with shadow DOM support](#get-activeElement-with-shadow-dom-support)
 1. [set element focus](#set-element-focus)
 1. [get Event target with shadow DOM support](#get-Event-target)
 1. [get ancestor parent](#get-ancestor-node)
@@ -30,7 +30,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [get window width and height](#get-window-width-and-height)
 1. [get element offset and element top](#get-element-offset-and-element-top)
 1. [get element width, actual width, height, actual height](#get-element-width,-actual-width,-height,-actual-height)
-1. [check whether elment is visible/hidden](#check-whether-elment-is-visible/hidden)
+1. [check whether elment is visible/hidden](#check-whether-elment-is-visiblehidden)
 1. [set or clear element max-height](#set-or-clear-element-max-height)
 
 ### shadow DOM related
@@ -103,18 +103,30 @@ loadScriptWithSRI(
 );
 ```
 
-### append/prepend element or html string
-Append or prepend child (html string) to container.
+### append/prepend element or html string to container or shadowRoot
+Append or prepend child (html string) to container or shadowRoot.
 ```
-import { appendChild, appendHtmlString, prependChild, prependHtmlString } from 'common-dom-utils';
+import {
+  appendChild,
+  appendHtmlString,
+  prependChild,
+  prependHtmlString,
+  appendHtmlStringToShadowRoot,
+  prependHtmlStringToShadowRoot,
+} from 'common-dom-utils';
 
-// append / prepend child to container
+// append / prepend child to container and shadowRoot
 appendChild(document.createElement('span'), document.body);
 prependChild(document.createElement('span'), document.body);
 
 // append / prepend html string to container
 appendHtmlString('<span>hello world</span>', document.body);
 prependHtmlString('<span>hello world</span>', document.body);
+
+// append / prepend html string to shadowRoot
+// - shadowRoot does not support insertAdjacentHTML, so need to use HTML <template>
+appendHtmlStringToShadowRoot('<span>hello world</span>', this.shadowRoot);
+prependHtmlStringToShadowRoot('<span>hello world</span>', this.shadowRoot);
 ```
 
 ### get activeElement with shadow DOM support
