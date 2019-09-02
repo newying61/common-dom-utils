@@ -19,6 +19,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [load css string into DOM container](#load-css-string-into-DOM-container)
 
 ### DOM operations
+1. [append/prepend element or html string](#append/prepend-element-or-html-string)
 1. [get activeElement with shadow DOM support](#get-activeElement-with-shadow-DOM-support)
 1. [set element focus](#set-element-focus)
 1. [get Event target with shadow DOM support](#get-Event-target)
@@ -100,6 +101,20 @@ loadScriptWithSRI(
   () => { console.log('Script loaded') },
   (e) => { conole.log(e) }
 );
+```
+
+### append/prepend element or html string
+Append or prepend child (html string) to container.
+```
+import { appendChild, appendHtmlString, prependChild, prependHtmlString } from 'common-dom-utils';
+
+// append / prepend child to container
+appendChild(document.createElement('span'), document.body);
+prependChild(document.createElement('span'), document.body);
+
+// append / prepend html string to container
+appendHtmlString('<span>hello world</span>', document.body);
+prependHtmlString('<span>hello world</span>', document.body);
 ```
 
 ### get activeElement with shadow DOM support

@@ -24,3 +24,7 @@ export { scrollToPosition } from './scrollToPosition';
 export { querySelector } from './querySelector';
 export { querySelectorAll } from './querySelectorAll';
 export { createDomUtilsForShadowRoot } from './createDomUtilsForShadowRoot';
+export { appendChild } from './appendChild';
+export { appendHtmlString } from './appendHtmlString';
+export { prependChild } from './prependChild';
+export { prependHtmlString } from './prependHtmlString';
