@@ -33,6 +33,9 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [check whether elment is visible/hidden](#check-whether-elment-is-visiblehidden)
 1. [set or clear element max-height](#set-or-clear-element-max-height)
 
+### Class related
+1. [Class related operations (addClass etc)](#class-related-operations)
+
 ### shadow DOM related
 1. [get host element](#get-host-element)
 1. [get shadowRoot](#get-shadowRoot)
@@ -291,6 +294,25 @@ Check whether elment is visible/hidden.
 import { isElementVisible } from 'common-dom-utils';
 
 const isHidden = !isElementVisible(ref.current);
+```
+
+### Class related operations
+addClass, removeClass, toggleClass, hasClass, replaceClass.
+```
+import { addClass, removeClass, toggleClass, hasClass, replaceClass } from 'common-dom-utils';
+
+addClass(document.body, 'modal-open');
+hasClass(document.body, 'modal-open'); // true
+
+removeClass(document.body, 'modal-open');
+hasClass(document.body, 'modal-open'); // false
+
+// return value:
+// - true : class added
+// - false: class removed
+toggleClass(document.body, 'modal-open');
+
+replaceClass(document.body, 'modal-open', 'modal-closed');
 ```
 
 ### scroll to anchor or position
