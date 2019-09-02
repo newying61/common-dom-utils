@@ -35,3 +35,5 @@ export { removeClass } from './removeClass';
 export { hasClass } from './hasClass';
 export { toggleClass } from './toggleClass';
 export { replaceClass } from './replaceClass';
+export { canUseDOM } from './canUseDOM';
+export { contains } from './contains';

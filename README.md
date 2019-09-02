@@ -25,6 +25,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [get Event target with shadow DOM support](#get-Event-target)
 1. [get ancestor parent](#get-ancestor-node)
 1. [querySelector and querySelectorAll inside container](#queryselector-and-queryselectorall-inside-container)
+1. [check contains node](#check-contains-node)
 
 ### Dimension related
 1. [get window width and height](#get-window-width-and-height)
@@ -43,6 +44,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 
 ### Other utils
 1. [scroll to anchor or position](#scroll-to-anchor-or-position)
+1. [canUseDOM](#can-use-dom-flag)
 
 ### load js script into DOM container
 Load js script file into DOM.
@@ -343,6 +345,15 @@ querySelector('.element-className', shadowRoot);
 querySelectorAll('.element-className', shadowRoot);
 ```
 
+### check contains node
+Check whether container contains node or not.
+```
+import { contains } from 'common-dom-utils';
+
+contains(document.body, el);
+contains(this.renderRoot, el);
+```
+
 ### create dom utils for shadowRoot
 Create a Dom Utils object for shadowRoot.
 
@@ -368,4 +379,12 @@ Return:
   setFocus,
   getEventTarget
 }
+```
+
+### canUseDOM
+true if can use DOM.
+```
+import { canUseDOM } from 'common-dom-utils';
+
+canUseDOM; // true if can use DOM
 ```
