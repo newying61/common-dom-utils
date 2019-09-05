@@ -10,4 +10,12 @@ describe('removeClass - remove class', () => {
 
     expect(document.body.className).toBe('');
   });
+
+  it('should not remove class if target does not exist', () => {
+    try {
+      removeClass(null, 'test');
+    } catch {
+      fail('should not come here');
+    }
+  });
 });

@@ -10,4 +10,8 @@ describe('hasClass - check class name exists or not', () => {
     removeClass(document.body, 'test');
     expect(hasClass(document.body, 'test')).toBe(false);
   });
+
+  it('should return false if target does not exist', () => {
+    expect(hasClass(null, 'test')).toBe(false);
+  });
 });

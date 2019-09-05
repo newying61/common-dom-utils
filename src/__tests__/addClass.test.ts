@@ -6,4 +6,12 @@ describe('addClass - add class', () => {
 
     expect(document.body.className).toBe('test');
   });
+
+  it('should return if target does not exist', () => {
+    try {
+      addClass(null, 'test');
+    } catch {
+      fail('should not come here');
+    }
+  });
 });
