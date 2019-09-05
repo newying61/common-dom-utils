@@ -37,3 +37,5 @@ export { toggleClass } from './toggleClass';
 export { replaceClass } from './replaceClass';
 export { canUseDOM } from './canUseDOM';
 export { contains } from './contains';
+export { isDocumentReady } from './isDocumentReady';
+export { getCamelCase } from './getCamelCase';

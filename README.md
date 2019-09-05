@@ -45,6 +45,8 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 ### Other utils
 1. [scroll to anchor or position](#scroll-to-anchor-or-position)
 1. [canUseDOM](#can-use-dom-flag)
+1. [get camel case property name](#get-camel-case-property-name)
+1. [check document ready](#check-document-ready)
 
 ### load js script into DOM container
 Load js script file into DOM.
@@ -387,4 +389,20 @@ true if can use DOM.
 import { canUseDOM } from 'common-dom-utils';
 
 canUseDOM; // true if can use DOM
+```
+
+### get camel case property name
+Change snake-case to camelCase.
+```
+import { getCamelCase } from 'common-dom-utils';
+
+getCamelCase('property-name'); // return propertyName
+```
+
+### check document ready
+Check whether document is ready.
+```
+import { isDocumentReady } from 'common-dom-utils';
+
+isDocumentReady(); // return true if document.readyState is 'complete'
 ```
