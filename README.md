@@ -136,6 +136,14 @@ appendHtmlStringToShadowRoot('<span>hello world</span>', this.shadowRoot);
 prependHtmlStringToShadowRoot('<span>hello world</span>', this.shadowRoot);
 ```
 
+### replace old child with new child
+Replace old DOM elment with new child.
+```
+import { replaceChild } from 'common-dom-utils';
+
+replaceChild(document.createElement('span'), oldChild);
+```
+
 ### get activeElement with shadow DOM support
 Return document.activeElement by default.
 

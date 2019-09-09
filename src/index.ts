@@ -30,6 +30,7 @@ export { prependChild } from './prependChild';
 export { prependHtmlString } from './prependHtmlString';
 export { appendHtmlStringToShadowRoot } from './appendHtmlStringToShadowRoot';
 export { prependHtmlStringToShadowRoot } from './prependHtmlStringToShadowRoot';
+export { replaceChild } from './replaceChild';
 export { addClass } from './addClass';
 export { removeClass } from './removeClass';
 export { hasClass } from './hasClass';
