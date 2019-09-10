@@ -40,3 +40,7 @@ export { canUseDOM } from './canUseDOM';
 export { contains } from './contains';
 export { isDocumentReady } from './isDocumentReady';
 export { getCamelCase } from './getCamelCase';
+export { getAttribute } from './getAttribute';
+export { setAttribute } from './setAttribute';
+export { hasAttribute } from './hasAttribute';
+export { removeAttribute } from './removeAttribute';

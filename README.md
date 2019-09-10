@@ -26,6 +26,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [get ancestor parent](#get-ancestor-node)
 1. [querySelector and querySelectorAll inside container](#queryselector-and-queryselectorall-inside-container)
 1. [check contains node](#check-contains-node)
+1. [attribute related operations (set, get, remove, has)](#attribute-related-operations)
 
 ### Dimension related
 1. [get window width and height](#get-window-width-and-height)
@@ -35,7 +36,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [set or clear element max-height](#set-or-clear-element-max-height)
 
 ### Class related
-1. [Class related operations (addClass etc)](#class-related-operations)
+1. [Class related operations (addClass, removeClass, toggleClass etc)](#class-related-operations)
 
 ### shadow DOM related
 1. [get host element](#get-host-element)
@@ -362,6 +363,17 @@ import { contains } from 'common-dom-utils';
 
 contains(document.body, el);
 contains(this.renderRoot, el);
+```
+
+### attribute related operations
+set, get, remove, has attribute methods.
+```
+import { setAttribute, getAttribute, hasAttribute, removeAttribute } from 'common-dom-utils';
+
+setAttribute(target, 'attrName', 'value');
+getAttribute(target, 'attrName'); // Return attribute value (string).
+hasAttribute(target, 'attrName'); // Return true. false if attribute does not exist.
+removeAttribute(target, 'attrName');
 ```
 
 ### create dom utils for shadowRoot
