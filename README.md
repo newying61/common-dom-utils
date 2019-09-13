@@ -5,6 +5,8 @@ Supporting types and tree shaking with webpack.
 
 No polyfill. Rely on your project polyfill (Only Promise needed for older browsers).
 
+All functions are checking whether target element is null or not.
+
 Hope this can help to make front end development easier.
 
 ## install
@@ -27,6 +29,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [querySelector and querySelectorAll inside container](#queryselector-and-queryselectorall-inside-container)
 1. [check contains node](#check-contains-node)
 1. [attribute related operations (set, get, remove, has)](#attribute-related-operations)
+1. [get or set html string](#get-or-set-html-string)
 
 ### Dimension related
 1. [get window width and height](#get-window-width-and-height)
@@ -326,6 +329,19 @@ hasClass(document.body, 'modal-open'); // false
 toggleClass(document.body, 'modal-open');
 
 replaceClass(document.body, 'modal-open', 'modal-closed');
+```
+
+### get or set html string
+Get inner html string from target. Return empty string if el is null.
+If passing string as the second parameter, the string will be set as innerHTML of target.
+```
+import { html } from 'common-dom-utils';
+
+// Get innerHTML string
+const str = html(el);
+
+// Set innterHTML as the second param
+html(el, '<span>test</span>');
 ```
 
 ### scroll to anchor or position

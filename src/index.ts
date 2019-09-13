@@ -44,3 +44,4 @@ export { getAttribute } from './getAttribute';
 export { setAttribute } from './setAttribute';
 export { hasAttribute } from './hasAttribute';
 export { removeAttribute } from './removeAttribute';
+export { html } from './html';
