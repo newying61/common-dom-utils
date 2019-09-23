@@ -41,6 +41,9 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 ### Class related
 1. [Class related operations (addClass, removeClass, toggleClass etc)](#class-related-operations)
 
+### Cookie related
+1. [Cookie related operations (getCookie, setCookie, deleteCookie)](#cookie-related-operations)
+
 ### shadow DOM related
 1. [get host element](#get-host-element)
 1. [get shadowRoot](#get-shadowRoot)
@@ -330,6 +333,23 @@ toggleClass(document.body, 'modal-open');
 
 replaceClass(document.body, 'modal-open', 'modal-closed');
 ```
+
+### Cookie related operations
+getCookie, setCookie, deleteCookie.
+```
+import { getCookie, setCookie, deleteCookie } from 'common-dom-utils';
+
+// Cookie name, expire days
+setCookie('cookieName', 'cookieValue', 1);
+getCookie('cookieName');
+
+deleteCookie('cookieName');
+```
+
+setCookie params:
+- cookieName: string. Cookie name.
+- cookieValue: string. Cookie value.
+- expireDays: number. Expiring in days.
 
 ### get or set html string
 Get inner html string from target. Return empty string if el is null.

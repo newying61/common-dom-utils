@@ -45,3 +45,6 @@ export { setAttribute } from './setAttribute';
 export { hasAttribute } from './hasAttribute';
 export { removeAttribute } from './removeAttribute';
 export { html } from './html';
+export { getCookie } from './getCookie';
+export { setCookie } from './setCookie';
+export { deleteCookie } from './deleteCookie';
