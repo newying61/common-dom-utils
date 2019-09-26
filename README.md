@@ -49,6 +49,9 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [get shadowRoot](#get-shadowRoot)
 1. [create dom utils for shadowRoot](#create-dom-utils-for-shadowroot)
 
+### storage related
+1. [save and get object from localStorage](#save-and-get-object-from-localstorage)
+
 ### Other utils
 1. [scroll to anchor or position](#scroll-to-anchor-or-position)
 1. [canUseDOM](#can-use-dom-flag)
@@ -437,6 +440,15 @@ Return:
   setFocus,
   getEventTarget
 }
+```
+
+### save and get object from localStorage
+Save and get object from localStorage
+```
+import { saveToLocalStorage, getFromLocalStorage } from 'common-dom-utils';
+
+saveToLocalStorage('test', { a: 1 });
+const o = getFromLocalStorage('test'); // return { a: 1 }
 ```
 
 ### canUseDOM
