@@ -50,3 +50,5 @@ export { setCookie } from './setCookie';
 export { deleteCookie } from './deleteCookie';
 export { saveToLocalStorage } from './saveToLocalStorage';
 export { getFromLocalStorage } from './getFromLocalStorage';
+export { deleteFromLocalStorage } from './deleteFromLocalStorage';
+export { clearLocalStorage } from './clearLocalStorage';
