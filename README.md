@@ -52,6 +52,8 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 ### storage related
 1. [save and get object from localStorage](#save-and-get-object-from-localstorage)
 1. [delete key or clear all keys from localStorage](#delete-key-or-clear-all-keys-from-localstorage)
+1. [save and get object from sessionStorage](#save-and-get-object-from-sessionstorage)
+1. [delete key or clear all keys from sessionStorage](#delete-key-or-clear-all-keys-from-sessionstorage)
 
 ### Other utils
 1. [scroll to anchor or position](#scroll-to-anchor-or-position)
@@ -462,6 +464,27 @@ deleteFromLocalStorage('test');
 
 // Clear all keys
 clearLocalStorage();
+```
+
+### save and get object from SessionStorage
+Save and get object from sessionStorage
+```
+import { saveToSessionStorage, getFromSessionStorage } from 'common-dom-utils';
+
+saveToSessionStorage('test', { a: 1 });
+const o = getFromSessionStorage('test'); // return { a: 1 }
+```
+
+### delete key or clear all keys from SessionStorage
+Delete key or clear all keys from sessionStorage
+```
+import { deleteFromSessionStorage, clearSessionStorage } from 'common-dom-utils';
+
+// Delete one key from sessionStorage
+deleteFromSessionStorage('test');
+
+// Clear all keys
+clearSessionStorage();
 ```
 
 ### canUseDOM

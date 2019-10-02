@@ -52,3 +52,7 @@ export { saveToLocalStorage } from './saveToLocalStorage';
 export { getFromLocalStorage } from './getFromLocalStorage';
 export { deleteFromLocalStorage } from './deleteFromLocalStorage';
 export { clearLocalStorage } from './clearLocalStorage';
+export { saveToSessionStorage } from './saveToSessionStorage';
+export { getFromSessionStorage } from './getFromSessionStorage';
+export { deleteFromSessionStorage } from './deleteFromSessionStorage';
+export { clearSessionStorage } from './clearSessionStorage';
