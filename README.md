@@ -381,6 +381,10 @@ import { getFocusableElements } from 'common-dom-utils';
 // Get elements that can receive focus in document
 const elements = getFocusableElements();
 
+// Get from container in DOM
+const container = ref.current;
+const elements = getFocusableElements(container);
+
 // Get from shadow DOM
 const elements = getFocusableElements(el.shadowRoot);
 ```
