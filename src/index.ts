@@ -56,3 +56,4 @@ export { saveToSessionStorage } from './saveToSessionStorage';
 export { getFromSessionStorage } from './getFromSessionStorage';
 export { deleteFromSessionStorage } from './deleteFromSessionStorage';
 export { clearSessionStorage } from './clearSessionStorage';
+export { getFocusableElements } from './getFocusableElements';

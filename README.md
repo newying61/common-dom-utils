@@ -30,6 +30,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [check contains node](#check-contains-node)
 1. [attribute related operations (set, get, remove, has)](#attribute-related-operations)
 1. [get or set html string](#get-or-set-html-string)
+1. [get all focusable elements](#get-all-focusable-elements)
 
 ### Dimension related
 1. [get window width and height](#get-window-width-and-height)
@@ -368,6 +369,20 @@ const str = html(el);
 
 // Set innterHTML as the second param
 html(el, '<span>test</span>');
+```
+
+### get all focusable elements
+Get all elements that can receive focus (all focusable elements).
+Using the selector mentioned in [stackoverflow question - Which HTML elements can receive focus?](https://stackoverflow.com/questions/1599660/which-html-elements-can-receive-focus).
+
+```
+import { getFocusableElements } from 'common-dom-utils';
+
+// Get elements that can receive focus in document
+const elements = getFocusableElements();
+
+// Get from shadow DOM
+const elements = getFocusableElements(el.shadowRoot);
 ```
 
 ### scroll to anchor or position
