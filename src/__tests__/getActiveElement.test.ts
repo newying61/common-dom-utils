@@ -21,10 +21,9 @@ describe('getActiveElement - return activeElement', () => {
 
     button.focus();
 
-    // shadowRoot.activeElement is not implemented in jsdom 15.1.1 (21 Aug 2019)
-    // const element = getActiveElement();
+    const element = getActiveElement();
 
-    // expect(element).toBe(div);
+    expect(element).toBe(div);
 
     const realEl = getActiveElement(true);
     expect(realEl).toBe(button);

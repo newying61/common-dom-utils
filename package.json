@@ -37,13 +37,13 @@
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.6.0",
     "jest": "^24.7.1",
-    "jsdom": "^15.1.1",
+    "jsdom": "^15.2.1",
     "semantic-release": "^15.13.3",
     "ts-jest": "^24.0.2",
     "typescript": "^3.4.1"
   },
   "resolutions": {
-    "jest/**/jsdom": "15.1.1"
+    "jest/**/jsdom": "15.2.1"
   },
   "files": [
     "dist/**",
