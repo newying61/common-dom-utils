@@ -22,15 +22,16 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 
 ### DOM operations
 1. [append/prepend element or html string to container or shadowRoot](#appendprepend-element-or-html-string-to-container-or-shadowroot)
-1. [get activeElement with shadow DOM support](#get-activeElement-with-shadow-dom-support)
+1. [get activeElement with shadow DOM support](#get-activeelement-with-shadow-dom-support)
 1. [set element focus](#set-element-focus)
-1. [get Event target with shadow DOM support](#get-Event-target)
+1. [get Event target with shadow DOM support](#get-event-target)
 1. [get ancestor parent](#get-ancestor-node)
 1. [querySelector and querySelectorAll inside container](#queryselector-and-queryselectorall-inside-container)
 1. [check contains node](#check-contains-node)
 1. [attribute related operations (set, get, remove, has)](#attribute-related-operations)
 1. [get or set html string](#get-or-set-html-string)
 1. [get all focusable elements](#get-all-focusable-elements)
+1. [detach or remove an element from DOM](#detach-or-remove-an-element)
 
 ### Dimension related
 1. [get window width and height](#get-window-width-and-height)
@@ -387,6 +388,19 @@ const elements = getFocusableElements(container);
 
 // Get from shadow DOM
 const elements = getFocusableElements(el.shadowRoot);
+```
+
+### detach or remove an element
+Detach or remove an element from DOM.
+```
+import { detachElement, removeElement } from 'common-dom-utils';
+
+// detachElement removes element from DOM and return the element instance, which can be added back to DOM later.
+const element = detachElement(element);
+appendChild(element, document.body);
+
+// removeElement removes the element from DOM
+removeElement(element);
 ```
 
 ### scroll to anchor or position
