@@ -1,4 +1,7 @@
 # common-dom-utils
+![npm](https://img.shields.io/npm/v/common-dom-utils)
+![NPM](https://img.shields.io/npm/l/common-dom-utils)
+
 Common DOM util functions for modern browsers, with shadow DOM support.
 
 Supporting types and tree shaking with webpack.
