@@ -59,3 +59,4 @@ export { clearSessionStorage } from './clearSessionStorage';
 export { getFocusableElements } from './getFocusableElements';
 export { detachElement } from './detachElement';
 export { removeElement } from './removeElement';
+export { removeChildren } from './removeChildren';
