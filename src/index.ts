@@ -60,3 +60,4 @@ export { getFocusableElements } from './getFocusableElements';
 export { detachElement } from './detachElement';
 export { removeElement } from './removeElement';
 export { removeChildren } from './removeChildren';
+export { scrollTop } from './scrollTop';
