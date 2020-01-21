@@ -36,6 +36,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [get all focusable elements](#get-all-focusable-elements)
 1. [detach or remove an element from DOM](#detach-or-remove-an-element)
 1. [remove all chidlren elements from DOM](#remove-all-children)
+1. [hide or show element by toggling display style](#hide-or-show-element)
 
 ### Dimension related
 1. [get window width and height](#get-window-width-and-height)
@@ -408,12 +409,21 @@ appendChild(element, document.body);
 removeElement(element);
 ```
 
-### remove all chidlren
+### remove all children
 Remove all children from node.
 ```
 import { removeChildren } from 'common-dom-utils';
 
 removeChildren(element);
+```
+
+### hide or show element
+Hide element by setting display to none. Show element by removing display none style.
+```
+import { hide, show } from 'common-dom-utils';
+
+hide(el); // element display style is set to 'none'
+show(el); // element display style is set to ''
 ```
 
 ### scroll to anchor or position

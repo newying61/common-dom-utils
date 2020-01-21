@@ -61,3 +61,5 @@ export { detachElement } from './detachElement';
 export { removeElement } from './removeElement';
 export { removeChildren } from './removeChildren';
 export { scrollTop } from './scrollTop';
+export { hide } from './hide';
+export { show } from './show';
