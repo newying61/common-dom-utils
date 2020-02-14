@@ -63,3 +63,4 @@ export { removeChildren } from './removeChildren';
 export { scrollTop } from './scrollTop';
 export { hide } from './hide';
 export { show } from './show';
+export { scrollIntoView } from './scrollIntoView';

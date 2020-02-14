@@ -65,6 +65,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 ### Other utils
 1. [scroll to anchor or position](#scroll-to-anchor-or-position)
 1. [scroll to page top](#scroll-to-page-top)
+1. [scroll into view](#scroll-into-view)
 1. [canUseDOM](#can-use-dom-flag)
 1. [get camel case property name](#get-camel-case-property-name)
 1. [check document ready](#check-document-ready)
@@ -454,6 +455,18 @@ scrollTop();
 
 scrollTo parameters:
 - duration: animating time. default: 0 (no scroll animation)
+
+### scroll into view
+Scroll element into visible area
+```
+import { scrollIntoView } from 'common-dom-utils';
+
+// Scroll el into visible area and align to parent container top
+scrollIntoView(el);
+
+// Scroll el into visible area and align to the parent container bottom
+scrollTop(el, false);
+```
 
 ### querySelector and querySelectorAll inside container
 document.querySelector and document.querySelectorAll doesn't go into shadow DOM.
