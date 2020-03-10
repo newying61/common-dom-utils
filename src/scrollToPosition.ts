@@ -18,7 +18,7 @@ function easeInOutQuad(t: number, b: number, c: number, d: number): number {
  */
 export function scrollToPosition(
   position: number,
-  duration: number = 0,
+  duration = 0,
   callback: () => void = null) {
     const start = window.pageYOffset;
     const to = position;
@@ -26,9 +26,9 @@ export function scrollToPosition(
     let currentTime = 0;
     const increment = 20;
 
-  var animateScroll = function animateScroll() {
+  const animateScroll = function animateScroll() {
       currentTime += increment;
-      var val = easeInOutQuad(currentTime, start, change, duration);
+      const val = easeInOutQuad(currentTime, start, change, duration);
       window.scrollTo(0, val);
 
       if (currentTime < duration) {

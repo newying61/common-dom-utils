@@ -1,7 +1,7 @@
 export function loadCssFile(
   cssFileUrl: string,
   container: HTMLElement = document.head,
-  before: boolean = false) {
+  before = false) {
     const styleSheet = document.createElement('link');
 
     styleSheet.rel = 'stylesheet';

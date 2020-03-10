@@ -6,6 +6,6 @@ import { scrollToPosition } from './scrollToPosition';
  * @param {Number} duration Duration of the animation effect
  *
  */
-export function scrollTop(duration: number = 0) {
+export function scrollTop(duration = 0) {
   scrollToPosition(0, duration);
 }

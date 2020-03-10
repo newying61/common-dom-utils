@@ -1,4 +1,4 @@
-export function setCookie(cname: string, cvalue: string, expireDays: number = 0) {
+export function setCookie(cname: string, cvalue: string, expireDays = 0) {
   let expires = '';
 
   if (expireDays) {

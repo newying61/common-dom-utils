@@ -13,7 +13,7 @@ export function loadScript(
         });
       }
 
-      let timeout: any;
+      let timeout: any = 0;
       let err: Error;
 
       function onScriptError(e: any) {

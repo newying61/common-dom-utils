@@ -3,6 +3,6 @@ export function removeChildren(node: Element) {
     return;
   }
 
-  var cNode = node.cloneNode(false);
+  const cNode = node.cloneNode(false);
   node.parentNode.replaceChild(cNode, node);
 }

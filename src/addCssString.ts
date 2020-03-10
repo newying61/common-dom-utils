@@ -1,7 +1,7 @@
 export function addCssString(
   cssString: string,
   container: HTMLElement = document.head,
-  before: boolean = false) {
+  before = false) {
     const styleEl = document.createElement("style");
     const cssEl = document.createTextNode(cssString);
 

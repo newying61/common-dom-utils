@@ -14,9 +14,7 @@
     "node_modules",
     "coverage",
     "dist",
-    "lib",
-    "src/**/*.test.ts",
-    "src/__tests__/**"
+    "lib"
   ],
   "include": ["./src", "*.d.ts"]
 }

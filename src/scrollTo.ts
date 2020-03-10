@@ -7,7 +7,7 @@ import { scrollToPosition } from './scrollToPosition';
  * @param {Number} duration Duration of the animation effect
  *
  */
-export function scrollTo(anchor: HTMLElement, duration: number = 0) {
+export function scrollTo(anchor: HTMLElement, duration = 0) {
   if (!anchor) {
     return;
   }
