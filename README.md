@@ -37,6 +37,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [detach or remove an element from DOM](#detach-or-remove-an-element)
 1. [remove all chidlren elements from DOM](#remove-all-children)
 1. [hide or show element by toggling display style](#hide-or-show-element)
+1. [add event listener](#add-event-listener)
 
 ### Dimension related
 1. [get window width and height](#get-window-width-and-height)
@@ -425,6 +426,22 @@ import { hide, show } from 'common-dom-utils';
 
 hide(el); // element display style is set to 'none'
 show(el); // element display style is set to ''
+```
+
+### add event listener
+The addEventListner function is a wrapper of native [addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
+
+It returns a function for removing the listener. This is trying to avoid the common error: listener function changed during the re-render and can't be removed.
+
+It also only attach the listener only when event target exists.
+```
+import { addEventListner } from 'common-dom-utils';
+
+// Add click listener to document and return the remove function
+const removeListener = addEventListner(document, "click", () => {});
+
+// Call returned function to remove the click listener
+removeListener();
 ```
 
 ### scroll to anchor or position
