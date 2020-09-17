@@ -65,3 +65,5 @@ export { hide } from './hide';
 export { show } from './show';
 export { scrollIntoView } from './scrollIntoView';
 export { addEventListener } from "./addEventListener";
+export { getCssPropertyValue } from "./getCssPropertyValue";
+export { disableTransition } from "./disableTransition";

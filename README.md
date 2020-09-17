@@ -38,6 +38,8 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [remove all chidlren elements from DOM](#remove-all-children)
 1. [hide or show element by toggling display style](#hide-or-show-element)
 1. [add event listener](#add-event-listener)
+1. [get css property value](#get-css-property-value)
+1. [temporarily disable transition](#temporarily-disable-transition)
 
 ### Dimension related
 1. [get window width and height](#get-window-width-and-height)
@@ -442,6 +444,31 @@ const removeListener = addEventListner(document, "click", () => {});
 
 // Call returned function to remove the click listener
 removeListener();
+```
+
+### get css property value
+Get the css property value of a HTMLElement
+```
+import { getCssPropertyValue } from 'common-dom-utils';
+
+// Get the display CSS value => "block"
+const value = getCssPropertyValue(document.body, "display");
+```
+
+### temporarily disable transition
+In some cases, like getting element width, if the element has transition width on it,
+the width would be a number during transition, not the real one.
+
+To get the right width immediately, a helper function `disableTransition` can be used.
+It will return a clear function to enable the transition again.
+```
+import { disableTransition } from 'common-dom-utils';
+
+// temporarily disable transition by adding an inline style `transition: none`
+const clearFunc = disableTransition(element);
+
+// clear the inline style transition
+clearFunc();
 ```
 
 ### scroll to anchor or position
