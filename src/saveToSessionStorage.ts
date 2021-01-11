@@ -1,4 +1,4 @@
-export function saveToSessionStorage(key: string, obj: object) {
+export function saveToSessionStorage(key: string, obj: Record<string, unknown>) {
   const str = JSON.stringify(obj);
 
   window.sessionStorage.setItem(key, str);

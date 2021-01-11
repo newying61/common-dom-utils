@@ -2,7 +2,7 @@ export function addEventListener(
   el: EventTarget,
   evt: string,
   listener: EventListenerOrEventListenerObject,
-  options: object | false = false
+  options: Record<string, unknown> | false = false
 ) {
   if (!el) {
     return;

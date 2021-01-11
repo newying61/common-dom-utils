@@ -35,7 +35,7 @@ export function loadScript(
           reject(err);
         }
 
-        resolve();
+        resolve(null);
       }
 
       function onLoadError(e: any) {
