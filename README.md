@@ -44,7 +44,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 ### Dimension related
 1. [get window width and height](#get-window-width-and-height)
 1. [get element offset and element top](#get-element-offset-and-element-top)
-1. [get element width, actual width, height, actual height](#get-element-width,-actual-width,-height,-actual-height)
+1. [get element width, actual width, height, actual height](#get-element-width-actual-width-height-actual-height)
 1. [check whether elment is visible/hidden](#check-whether-elment-is-visiblehidden)
 1. [set or clear element max-height](#set-or-clear-element-max-height)
 
