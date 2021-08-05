@@ -67,3 +67,4 @@ export { scrollIntoView } from './scrollIntoView';
 export { addEventListener } from "./addEventListener";
 export { getCssPropertyValue } from "./getCssPropertyValue";
 export { disableTransition } from "./disableTransition";
+export { documentReady } from "./documentReady";

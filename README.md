@@ -1,4 +1,5 @@
 # common-dom-utils
+
 ![npm](https://img.shields.io/npm/v/common-dom-utils)
 ![NPM](https://img.shields.io/npm/l/common-dom-utils)
 
@@ -13,10 +14,13 @@ All functions are checking whether target element is null or not.
 Hope this can help to make front end development easier.
 
 ## install
+
 Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 
 ## Methods
+
 ### Load js or css files
+
 1. [load js script in to container](#load-js-script-into-dom-container)
 1. [load css file into DOM container](#load-css-file-into-dom-container)
 1. [load script with SRI](#load-script-with-SRI)
@@ -24,6 +28,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [load css string into DOM container](#load-css-string-into-dom-container)
 
 ### DOM operations
+
 1. [append/prepend element or html string to container or shadowRoot](#appendprepend-element-or-html-string-to-container-or-shadowroot)
 1. [get activeElement with shadow DOM support](#get-activeelement-with-shadow-dom-support)
 1. [set element focus](#set-element-focus)
@@ -42,6 +47,7 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [temporarily disable transition](#temporarily-disable-transition)
 
 ### Dimension related
+
 1. [get window width and height](#get-window-width-and-height)
 1. [get element offset and element top](#get-element-offset-and-element-top)
 1. [get element width, actual width, height, actual height](#get-element-width-actual-width-height-actual-height)
@@ -49,32 +55,40 @@ Use `npm install common-dom-utils` or `yarn add common-dom-utils`
 1. [set or clear element max-height](#set-or-clear-element-max-height)
 
 ### Class related
+
 1. [Class related operations (addClass, removeClass, toggleClass etc)](#class-related-operations)
 
 ### Cookie related
+
 1. [Cookie related operations (getCookie, setCookie, deleteCookie)](#cookie-related-operations)
 
 ### shadow DOM related
+
 1. [get host element](#get-host-element)
 1. [get shadowRoot](#get-shadowRoot)
 1. [create dom utils for shadowRoot](#create-dom-utils-for-shadowroot)
 
 ### storage related
+
 1. [save and get object from localStorage](#save-and-get-object-from-localstorage)
 1. [delete key or clear all keys from localStorage](#delete-key-or-clear-all-keys-from-localstorage)
 1. [save and get object from sessionStorage](#save-and-get-object-from-sessionstorage)
 1. [delete key or clear all keys from sessionStorage](#delete-key-or-clear-all-keys-from-sessionstorage)
 
 ### Other utils
+
 1. [scroll to anchor or position](#scroll-to-anchor-or-position)
 1. [scroll to page top](#scroll-to-page-top)
 1. [scroll into view](#scroll-into-view)
 1. [canUseDOM](#can-use-dom-flag)
 1. [get camel case property name](#get-camel-case-property-name)
 1. [check document ready](#check-document-ready)
+1. [run function after document ready](#run-function-after-document-ready)
 
 ### load js script into DOM container
+
 Load js script file into DOM.
+
 ```
 import { loadScript } from 'common-dom-utils';
 
@@ -85,12 +99,15 @@ loadScript('https://script-url.com/script.js').then(
 ```
 
 parameters:
+
 - src: string. javascript file url
 - container: DOM element that \<script\> tag is inserted into, default: document.head
 - attributes: object. Extra attributes added to the script tag.
 
 ### load css file into DOM container
+
 Load css file into DOM.
+
 ```
 import { loadCssFile } from 'common-dom-utils';
 
@@ -98,11 +115,14 @@ loadCssFile('https://css-file-url/file.css');
 ```
 
 parameters:
+
 - cssFileUrl: string. css file url
 - container: DOM element that \<link\> tag is inserted into, default: document.head
 
 ### load js scripts series into DOM container
+
 Load js script file into DOM.
+
 ```
 import { loadScriptsSeries } from 'common-dom-utils';
 
@@ -116,11 +136,14 @@ loadScriptsSeries([
 ```
 
 parameters:
+
 - src: javascript file url
 - container: DOM element that \<script\> tag is inserted into, default: document.head
 
 ### load script with SRI
+
 SRI means Subresource Integrity (SRI) checking, it's recommended when using CDN for scripts.
+
 ```
 import { loadScriptWithSRI } from 'common-dom-utils';
 
@@ -136,7 +159,9 @@ loadScriptWithSRI(
 ```
 
 ### append/prepend element or html string to container or shadowRoot
+
 Append or prepend child (html string) to container or shadowRoot.
+
 ```
 import {
   appendChild,
@@ -162,7 +187,9 @@ prependHtmlStringToShadowRoot('<span>hello world</span>', this.shadowRoot);
 ```
 
 ### replace old child with new child
+
 Replace old DOM elment with new child.
+
 ```
 import { replaceChild } from 'common-dom-utils';
 
@@ -170,15 +197,17 @@ replaceChild(document.createElement('span'), oldChild);
 ```
 
 ### get activeElement with shadow DOM support
+
 Return document.activeElement by default.
 
 If passing true as a parameter, it will look into shadowRoot until finding the real active element.
 
 For example in the following structure:
 +host-element
-  +shadowRoot
-    +button
++shadowRoot
++button
 If button get focus:
+
 ```
 import { getActiveElement } from 'common-dom-utils';
 
@@ -190,18 +219,21 @@ const activeElement = getActiveElement(true);
 ```
 
 parameters:
+
 - withShadowRoot: boolean. default: false.
 
 ### get Event target
+
 Getting event target element by event.target.
 
 If the event is triggered inside shadow DOM, passing true as the second parameter, it will get the real event target by using composedPath().
 
 For example in the following structure:
 +host-element
-  +shadowRoot
-    +button
++shadowRoot
++button
 If button is clicked:
+
 ```
 import { getEventTarget } from 'common-dom-utils';
 
@@ -213,11 +245,14 @@ const target = getEventTarget(evt, true);
 ```
 
 parameters:
+
 - event: DOM Event object.
 - withShadowRoot: boolean. default: false.
 
 ### load css string into DOM container
+
 Load css string into DOM.
+
 ```
 import { addCssString } from 'common-dom-utils';
 
@@ -225,19 +260,25 @@ addCssString('*, *:before, *:after { box-sizing: border-box;}');
 ```
 
 parameters:
+
 - cssString: css string
 - container: DOM element that \<style\> tag is inserted into, default: document.head
 - before: insert \<style\> tag before all other children, default: false
 
 ### set element focus
+
 Set focus for element. If element is null or undefined, do nothing.
+
 ```
 import { setFocus } from 'common-dom-utils';
 
 setFocus(ref.current);
 ```
+
 ### get ancestor node
+
 Get ancestor node by condition. This function will cross shadowRoot until it find the parent node that matches the condition.
+
 ```
 import { getAncestorNode } from 'common-dom-utils';
 
@@ -245,10 +286,12 @@ const parent = getAncestorNode(ref.current, (node) => { node.className === 'cont
 ```
 
 Parameters:
+
 - node: HTMLElement. Starting node.
 - isNodeFound: Condition function called to check current node. Return true or false.
 
 ### get host element
+
 Get host element of a HTMLElement node. If node is not inside shadow DOM, null will be returned.
 
 ```
@@ -258,6 +301,7 @@ const host = getHostElement(ref.current);
 ```
 
 ### get shadowRoot
+
 Get the shadowRoot instance of a HTMLElement node.
 
 If node is not inside shadow DOM, null will be returned.
@@ -269,7 +313,9 @@ const shadowRoot = getShadowRoot(ref.current);
 ```
 
 ### get window width and height
+
 Get window width.
+
 ```
 import { getWindowWidth, getWindowHeight } from 'common-dom-utils';
 
@@ -278,7 +324,9 @@ const height = getWindowHeight();
 ```
 
 ### get element offset and element top
+
 Get element offset.
+
 ```
 import { getElementOffset, getElementTop } from 'common-dom-utils';
 
@@ -287,6 +335,7 @@ const top = getElementTop(el);
 ```
 
 Offset object
+
 ```
 {
   top: element top with scroll top
@@ -299,7 +348,9 @@ Offset object
 If element is null or undefined, offset will be null.
 
 ### get element width, actual width, height, actual height
+
 Get element width, actual width (scrollWidth), height, actual height(scrollHeight).
+
 ```
 import {
   getElementWidth,
@@ -317,7 +368,9 @@ import {
 If elment is null or undefined, return value will be 0.
 
 ### set or clear element max-height
+
 Set or clear element max-height
+
 ```
 import { setElementMaxHeight, clearElementMaxHeight } from 'common-dom-utils';
 
@@ -326,7 +379,9 @@ clearElementMaxHeight(ref.current);
 ```
 
 ### check whether elment is visible/hidden
+
 Check whether elment is visible/hidden.
+
 ```
 import { isElementVisible } from 'common-dom-utils';
 
@@ -334,7 +389,9 @@ const isHidden = !isElementVisible(ref.current);
 ```
 
 ### Class related operations
+
 addClass, removeClass, toggleClass, hasClass, replaceClass.
+
 ```
 import { addClass, removeClass, toggleClass, hasClass, replaceClass } from 'common-dom-utils';
 
@@ -353,7 +410,9 @@ replaceClass(document.body, 'modal-open', 'modal-closed');
 ```
 
 ### Cookie related operations
+
 getCookie, setCookie, deleteCookie.
+
 ```
 import { getCookie, setCookie, deleteCookie } from 'common-dom-utils';
 
@@ -365,13 +424,16 @@ deleteCookie('cookieName');
 ```
 
 setCookie params:
+
 - cookieName: string. Cookie name.
 - cookieValue: string. Cookie value.
 - expireDays: number. Expiring in days.
 
 ### get or set html string
+
 Get inner html string from target. Return empty string if el is null.
 If passing string as the second parameter, the string will be set as innerHTML of target.
+
 ```
 import { html } from 'common-dom-utils';
 
@@ -383,6 +445,7 @@ html(el, '<span>test</span>');
 ```
 
 ### get all focusable elements
+
 Get all elements that can receive focus (all focusable elements).
 Using the selector mentioned in [stackoverflow question - Which HTML elements can receive focus?](https://stackoverflow.com/questions/1599660/which-html-elements-can-receive-focus).
 
@@ -401,7 +464,9 @@ const elements = getFocusableElements(el.shadowRoot);
 ```
 
 ### detach or remove an element
+
 Detach or remove an element from DOM.
+
 ```
 import { detachElement, removeElement } from 'common-dom-utils';
 
@@ -414,7 +479,9 @@ removeElement(element);
 ```
 
 ### remove all children
+
 Remove all children from node.
+
 ```
 import { removeChildren } from 'common-dom-utils';
 
@@ -422,7 +489,9 @@ removeChildren(element);
 ```
 
 ### hide or show element
+
 Hide element by setting display to none. Show element by removing display none style.
+
 ```
 import { hide, show } from 'common-dom-utils';
 
@@ -431,11 +500,13 @@ show(el); // element display style is set to ''
 ```
 
 ### add event listener
+
 The addEventListner function is a wrapper of native [addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 
 It returns a function for removing the listener. This is trying to avoid the common error: listener function changed during the re-render and can't be removed.
 
 It also only attach the listener only when event target exists.
+
 ```
 import { addEventListner } from 'common-dom-utils';
 
@@ -447,7 +518,9 @@ removeListener();
 ```
 
 ### get css property value
+
 Get the css property value of a HTMLElement
+
 ```
 import { getCssPropertyValue } from 'common-dom-utils';
 
@@ -456,11 +529,13 @@ const value = getCssPropertyValue(document.body, "display");
 ```
 
 ### temporarily disable transition
+
 In some cases, like getting element width, if the element has transition width on it,
 the width would be a number during transition, not the real one.
 
 To get the right width immediately, a helper function `disableTransition` can be used.
 It will return a clear function to enable the transition again.
+
 ```
 import { disableTransition } from 'common-dom-utils';
 
@@ -472,7 +547,9 @@ clearFunc();
 ```
 
 ### scroll to anchor or position
+
 Scroll body to anchor element or a postion. (Vertical direction)
+
 ```
 import { scrollToPosition, scrollTo } from 'common-dom-utils';
 
@@ -481,15 +558,19 @@ scrollToPosition(0, 300);
 ```
 
 scrollTo parameters:
+
 - anchor: HTMLElement, element to scroll to
 - duration: animating time. default: 0 (no scroll animation)
 
 scrollToPosition parameters:
+
 - position: number.
 - duration: animating time. default: 0 (no scroll animation)
 
 ### scroll to page top
+
 Scroll to page top with duration
+
 ```
 import { scrollTop } from 'common-dom-utils';
 
@@ -498,10 +579,13 @@ scrollTop();
 ```
 
 scrollTo parameters:
+
 - duration: animating time. default: 0 (no scroll animation)
 
 ### scroll into view
+
 Scroll element into visible area
+
 ```
 import { scrollIntoView } from 'common-dom-utils';
 
@@ -513,9 +597,11 @@ scrollTop(el, false);
 ```
 
 ### querySelector and querySelectorAll inside container
+
 document.querySelector and document.querySelectorAll doesn't go into shadow DOM.
 
 You have to call shadowRoot.querySelector and shadowRoot.querySelectorAll instead.
+
 ```
 import { querySelector, querySelectorAll } from 'common-dom-utils';
 
@@ -524,7 +610,9 @@ querySelectorAll('.element-className', shadowRoot);
 ```
 
 ### check contains node
+
 Check whether container contains node or not.
+
 ```
 import { contains } from 'common-dom-utils';
 
@@ -533,7 +621,9 @@ contains(this.renderRoot, el);
 ```
 
 ### attribute related operations
+
 set, get, remove, has attribute methods.
+
 ```
 import { setAttribute, getAttribute, hasAttribute, removeAttribute } from 'common-dom-utils';
 
@@ -544,6 +634,7 @@ removeAttribute(target, 'attrName');
 ```
 
 ### create dom utils for shadowRoot
+
 Create a Dom Utils object for shadowRoot.
 
 ```
@@ -556,10 +647,13 @@ domUtils.querySelectorAll('.element-className');
 ```
 
 parameters:
+
 - shadowRoot: ShadowRoot or HTMLElement.
 
 Return:
+
 - Dom Utils Object exposing functions with shadowRoot support
+
 ```
 {
   querySelector,
@@ -571,7 +665,9 @@ Return:
 ```
 
 ### save and get object from localStorage
+
 Save and get object from localStorage
+
 ```
 import { saveToLocalStorage, getFromLocalStorage } from 'common-dom-utils';
 
@@ -580,7 +676,9 @@ const o = getFromLocalStorage('test'); // return { a: 1 }
 ```
 
 ### delete key or clear all keys from localStorage
+
 Delete key or clear all keys from localStorage
+
 ```
 import { deleteFromLocalStorage, clearLocalStorage } from 'common-dom-utils';
 
@@ -592,7 +690,9 @@ clearLocalStorage();
 ```
 
 ### save and get object from SessionStorage
+
 Save and get object from sessionStorage
+
 ```
 import { saveToSessionStorage, getFromSessionStorage } from 'common-dom-utils';
 
@@ -601,7 +701,9 @@ const o = getFromSessionStorage('test'); // return { a: 1 }
 ```
 
 ### delete key or clear all keys from SessionStorage
+
 Delete key or clear all keys from sessionStorage
+
 ```
 import { deleteFromSessionStorage, clearSessionStorage } from 'common-dom-utils';
 
@@ -613,7 +715,9 @@ clearSessionStorage();
 ```
 
 ### canUseDOM
+
 true if can use DOM.
+
 ```
 import { canUseDOM } from 'common-dom-utils';
 
@@ -621,7 +725,9 @@ canUseDOM; // true if can use DOM
 ```
 
 ### get camel case property name
+
 Change snake-case to camelCase.
+
 ```
 import { getCamelCase } from 'common-dom-utils';
 
@@ -629,9 +735,23 @@ getCamelCase('property-name'); // return propertyName
 ```
 
 ### check document ready
+
 Check whether document is ready.
+
 ```
 import { isDocumentReady } from 'common-dom-utils';
 
 isDocumentReady(); // return true if document.readyState is 'complete'
+```
+
+### run function after document ready
+
+Similar to jQuery $(document).ready(callback) function. But this `documentReady()` function is returning a Promise, which will be resolved when document is ready.
+
+```
+import { documentReady } from 'common-dom-utils';
+
+documentReady().then(() => {
+  console.log("document is ready");
+});
 ```
